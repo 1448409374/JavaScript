@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       /* img{
+           position: relative;
+       } */
+       #box{
+           width: 100px;
+           height: 100px;
+           background: pink;
+       }
+    </style>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+   
+</head>
+<body>
+    <!-- <img src="" alt="">
+    <input type="button" value="动画开始" id="btn">
+    <script>
+        $("#btn").click(function() {
+            $("img").animate({
+                "width": "500px",
+                "height": "450px",
+                 "opacity": 0.8,
+                 "left":"250px"
+            },1000);
+        });
+    </script> -->
+    <input type="button" value="开始运动" id="start">
+    <input type="button" value="停止运动" id="stop">
+    <div id="box"></div>
+
+    <script>
+        $("#start").click(function() {
+            $("#box").animate({"width":"200px","height":"200px" },2000);
+            $("#box").animate({"border-radius":"50%"},5000);
+            $("#box").animate({"border-radius":"0%"},5000);
+            $("#box").animate({"width":"100px","height":"100px" },2000);
+        });
+        $("#stop").click(function() {
+            $("#box").stop(true,true);
+        });
+    </script>
+</body>
+</html>

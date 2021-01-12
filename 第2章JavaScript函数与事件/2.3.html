@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		//函数定义，计算公司人数及总工资
+		function getTotal(){
+			var count= arguments.length;//人数
+			var sum = 0;	//总工资
+			for(var i=0;i<count;i++){
+				sum += arguments[i];
+			}
+			document.writeln("总人数是："+count+"，总工资是："+sum);
+		}
+	</script>
+	<h1>A 公司：<br/>
+		<script type="text/javascript">getTotal(2000,4000,4800,6000)//函数调用</script>
+	</h1>
+	<br/>
+	<h1>B 公司：<br/>
+		<script type="text/javascript">getTotal(24000,11000,18050,6000,8000)//函数调用</script>
+	</h1>
+</body>
+</html>

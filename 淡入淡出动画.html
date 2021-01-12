@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <img src="../第8章 jQuery动画与特效/第8章/实践案例1/1.png" alt="">
+    <input type="button" value="淡入" id="one">
+    <input type="button" value="淡出" id="two">
+    <script>
+        $("#one").click(function() {
+            $("img").fadeIn(2000,function() {
+                $(this).css({
+                    "border":"2px solid pink"
+                });
+            });
+        });
+        $("#two").click(function() {
+            $("img").fadeOut(2000);
+        });
+    </script>
+</body>
+</html>

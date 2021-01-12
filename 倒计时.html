@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div id="box"></div>
+   <script>
+       setInterval(function() {
+             //获取某个时间点的秒数 0是一月
+            var wdate=(new Date(2021,0,1)).getTime();//getTime()方法获取到的是“毫秒”
+            //获取当前时间点的秒数
+            var ndate=(new Date()).getTime();
+            //获取两个时间的时间差值
+            var diff=(wdate-ndate)/1000;//1000毫秒等于1秒
+            //当前的秒数够多少天 天数的判断
+            var day =parseInt(diff/(24*60*60));
+            //求[余数的小时]当前的小时数可以平摊开多少天后的[余的小时]
+            var hour=parseInt( diff/(60*60)%24);
+            //求[余数的分数]
+            var minutes=parseInt(diff/60%60);
+            //求[余的秒数]
+            var seconds=parseInt(diff%60);
+
+            var time="距离2021年1月1日，还有："+day+"天"+hour+"小时，"+minutes+"分钟，"+seconds+"分钟";
+            $("#box").text(time);
+       },1000);
+   </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <h3>请选择城市</h3>
+    省份：
+    <select name="" id="pron">
+        <option value="">请选择省份</option>
+    </select>
+    <select name="" id="city">
+        <option value="">请先选择省份</option>
+    </select>
+
+    <script>
+        var list=[];
+        list["广西省"]=["南宁市","贵港市","桂林市","玉林市","百色市"];
+        list["广东省"]=["广州市","中山市","东莞市","潮汕市","江门市"];
+        list["云南省"]=["昆明市","丽江市","大理市","香格里拉市"];
+
+       for(var p in list){
+            $(" <option value='"+p+"'>"+p+"</option>").appendTo("#pron");
+       }
+       $("#pron").change(function() {
+           var p=$(this).val();
+           var citys=list[p];
+           //清空city的值
+           $("#city option").remove();
+           for(var i=0;i<citys.length;i++){
+            $(" <option value='"+citys[i]+"'>"+citys[i]+"</option>").appendTo("#city");
+           }
+       });
+    </script>
+</body>
+</html>

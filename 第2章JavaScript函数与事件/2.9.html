@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<script type="text/javascript">
+		function calc(){
+			//根据id属性获取文本框后，使用其value属性进一步得到内容
+			var num1 = document.getElementById("op1").value;
+			var num2 = document.getElementById("op2").value;
+			//trim();去掉空格
+			if(num1.trim()!="" && num2.trim()!=""){
+				if(!isNaN(num1)&&!isNaN(num2)){
+					document.getElementById("result").value=parseFloat(num1)+parseFloat(num2);
+				}else{
+					//弹出消息框
+					alert("请输入正确的数值！");
+				}
+			}else{
+				alert("请输入两个操作数！");
+			}
+		}
+	</script>
+	<input type="text" id="op1"/> + <input type="text" id="op2"/> =
+	<input type="text" id="rsult"/>
+	<br/>	<input type="button" value="计算" onClick="calc()"/>
+</body>
+</html>

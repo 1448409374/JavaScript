@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <script>
+        //静态对象 使用 Object对象创建
+        var person=new Object();
+        person.name="张三";
+        person.age=20;
+        person.sex='男♂';
+        person.say=function(){
+            alert("他会唱歌");
+        }
+        alert(person["sex"]);
+        person.say();
+    </script> -->
+    <!-- 时间盒子 -->
+    <div id="box"></div>
+    <input type="button" value="展示当前时间" onclick="showTime()"> 
+<script>
+    //with语句使用
+    // function showTime() {
+    //     var date=new Date();
+    //     with(date){
+    //         //var hour=date.getHours();
+    //         var hour=getHours();
+    //         // var minutes=date.getMinutes();
+    //         var minutes=getMinutes();
+    //         //var seconds=date.getSeconds();
+    //         var seconds=getSeconds();
+    //     }
+    //     var box=document.getElementById("box");
+    //     box.innerHTML=hour+":"+minutes+":"+seconds;
+    // }
+
+// //  <!-- 时钟功能 -->
+// function getTime() {
+//     var date =new Date();
+//     var hour=date.getHours();
+//     var minutes=checkNum( date.getMinutes());
+//     var seconds=checkNum( date.getSeconds());
+//     var year=date.getFullYear();
+//     //月数获取回来时，0为1月.
+//     var month=date.getMonth()+1;
+//     var day=date.getDate();
+//    //获取盒子
+//     var box =document.getElementById("box");
+//     box.innerHTML=hour+":"+minutes+":"+seconds+"<br>"+year+"年"+month+"月"+day+"日";
+// }
+// function checkNum(num) {
+//     if(num<10){
+//         return "0"+num
+//     }
+//     return num;
+// }
+//     setInterval("getTime()",1000);
+      
+      //通过Image对象创建一个图片
+    //   var img=new Image();//相当于创建一个img标签
+    //   img.src="/HTML响应式网页设计/EC详情/image/list_ec6.jpg";
+    //   document.body.appendChild(img);
+       
+    //    var img2=document.createElement("img");
+    //    img2.src="/HTML响应式网页设计/EC详情/image/list_ec6.jpg";
+    //    document.body.appendChild(img2);
+    
+    //数组里面存储数组(二维数组)
+    // var arr=[];
+    // arr[0]=[1,2,2,3];
+    // arr["牛奶"]=["酸奶","老酸奶","纯牛奶"]
+    // document.write(arr[0][0]);
+    // document.write(arr["牛奶"][0]);
+
+    //创建一个类
+    function Person(name,age,sex) {
+        //属性声明
+        this.name=name;
+        this.age=age;
+        this.sex=sex;
+
+        //方法定义
+        this.say=function(){
+            alert("hello world");
+        }
+    }
+    //实例化一个类
+    var p =new Person("张三",20,'男');
+    // document.write(p.name);
+    // p.say();
+    //for.....in的使用
+    //1.
+    for (var prop in p) {
+       document.write(prop+"<br>");
+    }   
+    //从数组里面取数组下标展示
+    var arr=[];
+    arr["广东省"]=["小榄镇","横栏镇","中山市"];
+    for (var province in arr) {
+        document.write("省份为"+province+"城市有："+arr[province][0]+"<br>");
+    }
+</script>
+   </body>
+</html>

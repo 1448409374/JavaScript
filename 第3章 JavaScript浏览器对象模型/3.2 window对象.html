@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.2 window对象</title>
+
+</head>
+<body>
+    <p style="text-align: center">
+        <img src="" alt="" id="pic">
+    </p>
+    <p style="text-align: center">
+          <input type="button" value="开始" onClick="play()">
+          <input type="button" value="停止" onClick="stop()">
+    </p>
+
+    <div style="position: relative;height: 80px">
+        <div id="div" style="position: absolute; width: 50px; height: 50px; background: blue;"></div>
+        <p style="text-align: center">
+               <input type="button" value="开始" onclick="start()">
+               <input type="button" value="停止" onclick="stop()">
+        </p>
+    </div>
+    <script>
+        var age=23;
+        var name="张三";
+        window.alert("我是："+name+"\n年龄是："+age);
+
+        var name=window.prompt("请输入名称");
+        window.alert("欢迎你："+name);
+
+        var flag=window.confirm("确认删除吗？");
+        if (flag) {
+            window.alert("执行删除操作");
+        }
+        else{
+            window.alert("取消删除操作");
+        }
+
+        var newWin;
+        window.onload=function(){
+            newWin=
+            window.open("第1章 JavaScript基本语法.html","第1章 JavaScript基本语法","width=864,height=383,left=275,top=118");
+        }
+
+        setTimeout("alert('hello')",2000);
+        setInterval("alert('hello')",2000);
+
+        var i=1;
+        function change() {
+            if (i<4) {
+                I++;
+            }
+            else{
+                i=1;
+            }
+            document.getElementById("pic").scr=""+i+".gif";
+        }
+        var dh;
+        function play(){
+            dh=setInterval("change()",200);
+        }
+        function stop(){
+            clearInterval(dh);
+        }
+        
+        var startTime=0;
+        function change(){
+            if (startTime==0) {
+                startTime=new Date();
+            }
+           time=new Data();
+           document.getElementById("div").style.left=((time-startTime)/10%500+"px")
+        }
+        var animation;
+        function start() {
+            animation=requestAnimationFrame(start);
+            change();
+        }
+        function stop() {
+            cancelAnimationFrame(Animation);
+        }
+    </script>
+    <h2>主页面</h2>
+    <a href="javascript:newWin.close()">关闭广告</a>
+
+   
+</body>
+</html>

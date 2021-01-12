@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery使用</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <style>
+        .color{
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- <img src="./imgs/banner.jpg" alt="" id="img">
+    <input type="button" value="显示图片" id="show">
+    <input type="button" value="隐藏图片" id="hide">
+    <script>
+        $(function() {
+            $("#show").click(function() {
+                //展示这个标签
+                $("#img").show(1000);
+            });
+            $("#hide").click(function() {
+                $("#img").hide(2000);
+            });
+        });
+    </script> -->
+    <!-- <h3>娱乐项目</h3>
+     <ul>
+         <li>鲜花</li>
+         <li>游戏</li>
+         <li>旅游</li>
+         <li>酒店</li>
+         <li>新闻</li>
+     </ul>
+     <script>
+        $("h3").click(function() {
+            //切换方法toggle()
+            $(this).toggleClass("color").next("ul").toggle(1000);
+        });
+     </script> -->
+
+     <!-- 基本选择器 -->
+     <!-- <div id="box"></div>
+     <div class="boxes"></div>
+         <ul>
+             <li>表1</li>
+             <li>表2</li>
+             <li>表3</li>
+         </ul>
+         <span>呵呵呵呵</span>
+         <p>111111</p>
+         <h1>就这？</h1>
+         <script>
+             $(function() {
+                //  id选择器
+                 $("#box").css("background","pink");
+                 $("#box").css({"background":"red","width":"100px","height":"100px"})
+                // 类名选择器
+                 $(".boxes").css({"background":"pink","width":"100px","height":"100px"});
+                //标签选择器
+                 $("li").css({"background":"yellow","width":"100px","height":"100px"});
+
+                 $("*").css({"margin":"0","padding":"0"});
+
+                 //多个标签公用一个样式
+                 $("span,p,h1").css({"color":"pink"});
+
+             });
+         </script> -->
+
+         <!-- 基本过滤选择器 -->
+         <!-- <ul>
+            <li>鲜花</li>
+            <li>游戏</li>
+            <li>旅游</li>
+            <li>酒店</li>
+            <li>新闻</li>
+        </ul>
+        <script>
+            $(function() {
+                //获取第一元素
+                $("li").first().css("color:pink");
+                //获取最后元素
+                 $("li").last().css("color:orange");
+            })
+        </script> -->
+
+        
+</body>
+</html>

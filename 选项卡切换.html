@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡切换</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        #box{
+            width: 300px;
+            border: 1px solid #cccccc;
+            margin: 30px;
+        }
+        #box ul li{
+           float: left;
+           width: 100px;
+           padding: 10px 0;
+           text-align: center;
+           border-bottom: 1px solid #cccccc;
+        }
+        .active{
+            background: #cccccc;
+        }
+        .content div{
+            display: none;
+            height: 300px;
+        }
+        /* 选中第一个盒子，让它显示出来。 */
+        /* .content div:nth-child(1){
+            display: block;
+        } */
+        .show{
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+          <ul>
+              <li class="active">新闻</li>
+              <li>游戏</li>
+              <li>热点</li>
+          </ul>
+          <div class="content">
+            <div class="show">新闻盒子列表</div>
+            <div>游戏列表</div>
+            <div>热点新闻</div>
+      </div>        
+    </div>
+    <script>
+        // //方法一
+        // $(function() {
+        //     //each（）循环遍历方法,index是一个索引
+        //     $("#box li").each(function(index) {
+        //         //鼠标移入事件
+        //        $(this).mouseover(function() {
+        //            //消除样式
+        //            $("#box li").each(function(i) {
+        //                //移除类名
+        //                $(this).removeClass("active");
+        //                //隐藏盒子
+        //                $(".content div").eq(i).hide();
+        //            });
+        //            //鼠标移入时添加一个样式名
+        //         $(this).addClass("active");
+        //         //让对应序号的盒子展示出来
+        //         $(".content div").eq(index).show();
+        //     });
+        //     });
+        // });
+
+        //方法二
+        $("#box li").mouseover(function() {
+            //当前选中的元素加类名，相同层级的其他标签（li）移除样式
+            $(this).addClass("active").siblings("li").removeClass("active");
+            //索引方法，用于获取当前标签的索引
+            var index=$(this).index();
+            $(".content div").eq(index).addClass("show").siblings("div").removeClass("show");
+        });
+    </script>
+</body>
+</html>

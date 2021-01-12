@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3.3-1</title>
+</head>
+
+<body>
+一、
+<a href="3.3-2.html">打开下一个页面</a>
+	
+	
+二、
+	<script>
+		window.onload=function(){
+			var info=document.getElementById("info");
+			info.innerHTML="主机域名:"+window.location.hostname+"<br/>URL地址："+window.location.href+"<br/>主机端口："+window.location.port+"<br/>web协议："+window.location.protocol+"<br/>页面的路径和文件名："+window.location.pathname;
+		}
+		function changrURL(){
+			var url=document.getElementById("sel").value;
+			window.location.href=url;
+		}
+	</script>
+	<p>
+		页面相关信息如下：<br/>
+		<label id="info"></label>
+	</p>
+	<h3>友情链接：</h3>
+	<select id="sel" onChange="changeURL()">
+	    <option value="http://www.oschina.net">开源中国</option>
+		<option value="http://www.csdn.net">CSDN</option>
+		<option value="http://www.cnblogs.com">博客园</option>
+		<option value="http://www.mycodes.net">源码之家</option>
+	</select>
+	<a href="javascript:window.location.reload()">刷新</a>
+	<a href="javascript:window.location.assign('http://www.baidu.com')">百度一下，你就知道</a>
+
+</body>
+</html>

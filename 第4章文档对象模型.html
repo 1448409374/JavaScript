@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+         *{
+             margin: 0;
+             padding: 0;
+         }
+         .container{
+             width: 400px;
+             margin: 50px;
+             border: 1px solid #cccccc;
+         }
+         ul li{
+             list-style: none;
+             display: inline-block;
+             width: 30%;
+             height: 50px;
+             line-height: 50px;
+             text-align: center;
+             border: 1px solid #cccccc;
+         }
+         #content div{
+             width: 300px;
+             height: 100px;
+             border: 1px solid #cccccc;
+         }
+         .box2,.box3{
+             display: none;
+         }
+     </style>
+</head>
+<body>
+    <!-- 更改字体颜色和背景颜色 -->
+    <!-- <h2>更改字体颜色和背景颜色</h2>
+    <select name="" id="sel" onchange="chageColr(this)">
+        <option value="pink">粉色</option>
+        <option value="orange">橙色</option>
+        <option value="purple">紫色</option>
+        <option value="yellow">黄色</option>
+        <option value="red">红色</option>
+    </select>
+    <script>
+        function chageColr(obj) {
+
+            document.bgColor=obj.value;
+            // 颜色值是一个6进制的值
+            document.fgColor=obj.value+25;
+        }
+        // document.getElementById("sel").onchange=function(){
+        //     document.bgColor=this.value;
+        //     document.fgColor=this.value+255;
+        // };
+    </script> -->
+
+    <!-- 通过ID名称查找元素
+    <h1>嘿嘿嘿</h1><span id="txt">这是一个标题</span>
+    <script>
+        //获取到ID名称的标签
+        var txt=document.getElementById("txt");
+        txt.innerText="这是又一个标题";
+        txt.innerHTML="这是<b>又</b>一个标题";
+    </script> -->
+
+    <!-- 选项卡切换
+    <style>
+        ul li{
+            display:inline-block;
+            padding: 10px;
+            list-style: none;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+        }
+    </style>
+    <ul>
+        <li>首页</li>
+        <li>娱乐</li>
+        <li>游戏</li>
+    </ul>
+
+    <script>
+        var lis=document.getElementsByTagName("li");
+        for (var i=0; i < lis.length; i++) {
+            //移入事件
+            lis[i].onmouseover=function(){
+                this.style.background="red";
+            }
+            //移出事件
+            lis[i].onmouseout=function(){
+                this.style.background="#ccc";
+            }
+        }
+    </script> -->
+
+    <!-- 空间说说发表和删除
+    <input type="text" name="" id="say">
+    <input type="button" value="发表说说" onclick="sendMessage()">
+
+    <h1>说说列表</h1>
+     <ul id="sendBox"> 
+         <li>1楼：今天天气真好<a href="#">删除说说</a></li> -->
+     <!-- </ul>
+     <script>
+         var num=1;
+         function sendMessage() {
+             //获取文本内容
+             var say=document.getElementById("say").value;
+             var sendBox =document.getElementById("sendBox")
+             //创建一li标签储存文本
+             var li=document.createElement("li");
+             li.innerHTML=num+"楼"+say+"<a href='#' onclick='deleteSay(this)'>删除说说</a>";
+             //生成节点时，需要指定清除是哪个？
+             sendBox.appendChild(li);
+             //楼层数累加
+             num++;
+             //清空
+             document.getElementById("say").value="";
+         }
+         //删除说说
+         function deleteSay(obj) {
+             //移除节点
+             document.getElementById("sendBox").removeChild(obj.parentNode);
+         }
+     </script> -->
+
+     <div class="container">
+         <ul>
+             <li onmouseover="show(1)">娱乐</li>
+             <li  onmouseover="show(2)">新闻</li>
+             <li  onmouseover="show(3)">游戏</li>
+         </ul>
+         <div id="content">
+             <div>娱乐盒子1</div>
+             <div class="box2">新闻盒子2</div>
+             <div class="box3">游戏盒子3</div>
+         </div>
+     </div>
+     <script>
+         function show(num) {
+             var content=document.getElementById("content");
+             var divs=content.getElementsByTagName("div");
+             for (var i= 0; i < divs.length; i++) {
+                 divs[i].style.display="none"
+             }
+             //展示对应序号的盒子
+             divs[num-1].style.display="block";
+             //获取对应的li标签
+             var lis =document.getElementsByTagName("li");
+             for (var i = 0; i < lis.length; i++) {
+                lis[i].style.background="#fff";
+                 lis[i].style.color="#000";
+             }
+             lis[num-1].style.background="pink";
+             lis[num-1].style.color="#fff";
+         }
+     </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="number" id="num">
+    <input type="button" value="判断" id="btn">
+    <input type="text"name="" id="count">
+    <input type="button" value="计算" onclick="count()">
+    <script>
+        // 通过ID名称获取元素
+        var number=document.getElementById("num");
+        var btn= document.getElementById("btn");
+        btn.onclick=function(){
+            var val= number.value.trim();
+            if (val =="" || isNaN(val)) {
+                alert("请输入正确的数字值！");
+            } else {
+                alert("输入值是数字！");
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

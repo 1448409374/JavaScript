@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+</head>
+<body id="body"> 
+    <h1>请选择颜色</h1>
+    <select name="" id="select">
+              <option value="red">红色</option>
+              <option value="pink">粉色</option>
+              <option value="orange">橙色</option>
+    </select>
+    <script>
+        $("#select").change(function() {
+            var val =$("#select").val();
+            $("#body").css({"background":val});
+        });
+    </script>
+</body>
+</html>

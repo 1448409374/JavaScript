@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航条伸缩框</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #list{
+            margin: 30px;
+        }
+        #list li{
+            list-style: none;
+            height: 40px;
+            line-height: 40px;
+        }
+        #list a{
+            color: #666666;
+            text-decoration: none;
+        }
+        #list a:hover{
+            color: deepskyblue;
+        }
+        #list h6{
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .active{
+            color: deepskyblue;
+        }
+        span{
+            font-size: 12px;
+            margin-left: 30px;
+        }
+        h6:hover{
+            color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 列表 -->
+    <div id="list">
+         <h6>互动管理 <span>▼</span></h6>
+         <ul>
+             <li><a href="#">评论管理</a></li>
+             <li><a href="#">弹幕管理</a></li>
+         </ul>
+         <h6>收益管理 <span>▼</span></h6>
+         <ul>
+             <li><a href="#">创作激励</a></li>
+             <li><a href="#">充电计划</a></li>
+             <li><a href="#">悬赏计划</a></li>
+             <li><a href="#">火花平台</a></li>
+         </ul>
+         <h6>创作成长 <span>▼</span></h6>
+         <ul>
+             <li><a href="#">创作学院</a></li>
+             <li><a href="#">新星计划</a></li>
+         </ul>
+    </div>
+    <script>
+        $("#list h6").click(function() {
+            //next获取下一个相邻元素，prev获取上一个相邻元素
+            $(this).toggleClass("active").next("ul").toggle(500);
+            if ($(this).find("span").text()=="▼") {
+                $(this).find("span").text("▲");
+            } else {
+                $(this).find("span").text("▼")
+            }
+            
+        })
+    </script>
+</body>
+</html>

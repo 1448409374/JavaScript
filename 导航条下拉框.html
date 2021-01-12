@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #nav ul li{
+            float: left;
+            list-style: none;
+            margin: 0 auto;
+            padding: 10px;
+            width: 120px;
+            text-align: center;
+        }
+        #nav ul li:hover{
+            background: orange;
+        }
+        a{
+            text-decoration: none;
+            color: pink;
+        }
+        #nav ul li ul li{
+            width: 100px;
+        }
+        #nav ul li ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <ul>
+            <li><a href="">首页🐱‍🏍</a></li>
+            <li>
+                <a href="">图书🤷‍♂️</a>
+                <ul>
+                    <li><a href="">社会图书🤷‍♂️</a></li>
+                    <li><a href="">娱乐图书👀</a></li>
+                    <li><a href="">经济图书🐱‍👤</a></li>
+                    <li><a href="">管理书籍🤦‍♂️</a></li>
+                </ul>
+            </li>
+            <li><a href="">图书🤷‍♂️</a></li>
+            <li><a href="">娱乐👀</a></li>
+            <li><a href="">社会资源🐱‍👤</a>
+                <ul>
+                    <li><a href="">社会图书🤷‍♂️</a></li>
+                    <li><a href="">娱乐图书👀</a></li>
+                    <li><a href="">经济图书🐱‍👤</a></li>
+                    <li><a href="">管理书籍🤦‍♂️</a></li>
+                </ul>
+            </li>
+            <li><a href="">管理书籍🤦‍♂️</a>
+                <ul>
+                    <li><a href="">社会图书🤷‍♂️</a></li>
+                    <li><a href="">娱乐图书👀</a></li>
+                    <li><a href="">经济图书🐱‍👤</a></li>
+                    <li><a href="">管理书籍🤦‍♂️</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $("#nav ul li").hover(function() {
+            //向下拉
+            $(this).find("ul").slideDown(2000);
+        },function() {
+            //向上拉
+            $(this).find("ul").slideUp(1000);
+        });
+    </script>
+</body>
+</html>

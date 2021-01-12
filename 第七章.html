@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .color{
+          color: pink;
+      }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="./imgs/专业课素材/第3章/实践案例1/pc.jpg" alt="">
+    </div>
+    <input type="button" value="删除最后一张图片" id="btn">
+
+    <h1>嘿嘿嘿嘿</h1>
+    <ul>
+        <li>呵呵呵呵呵</li>
+    </ul>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        // var id=document.getElementById("id名称");
+
+        // var className=document.getElementsByClassName("类名");
+        // var tagName=document.getElementsByTagName("标签名称");
+        // var name=document.getElementsByName("表单的name值");
+
+        // var obj=$("#box");//==var id=document.getElementById("id名称");
+    //    $(function() {
+    //       $("h1").click(function(){
+    //         $(this).toggleClass("color");
+    //       });
+    //    });
+
+    //    $("img").attr("src",function() {
+    //        var imgs=[];
+    //        imgs[0]="";
+    //        imgs[1]="";
+    //        imgs[2]="";
+
+    //        //随机取图片路径返回
+    //        var index=Math.ceil(Math.random()*2);//向上取整数
+    //        return imgs[index];
+    //    });
+      //内部插入元素
+      $("<li>哈哈哈哈</li>").appendTo("ul");
+      //前置插入
+      $("<li>哈哈哈哈</li>").prependTo("ul");
+      $("<h1>哈哈哈哈</h1>").prependTo("ul");
+
+      //外部插入元素 ，插入同辈元素
+      $("<h1>我是标题</h1>").insertBefore("ul");
+      $("<h1>我是白天</h1>").insertAfter("ul");
+       
+       //替换节点
+       $("ul li:first").replaceWith("<li>针布搓</li>")
+
+       
+       //绑定删除最后一张图片
+       $("#btn").click(function() {
+           //移除元素
+           $("#box img:last").remove();
+       });
+       //点击复制图片
+       $("img").click(function() {
+           $(this).clone(true).appendTo("#box");
+       });
+    </script>
+</body>
+</html>

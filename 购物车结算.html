@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车结算</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 50px;
+            height: 50px;
+            /* 垂直居中 */
+           vertical-align: middle;
+
+        }
+        .num{
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>项目</th>
+            <th>状态</th>
+            <th>类型</th>
+            <th>单价</th>
+            <th>小计</th>
+            <th>操作</th>
+        </tr>
+        <tr class="shop-item">
+            <td>
+                <img src="" alt="">
+                <a href="#">精品酒店大床房</a>
+            </td>
+            <td>可下单</td>
+            <td>
+                <input type="button" value="-" class="diff">
+                <input type="text" value="1" class="num" disabled>
+                <input type="button" value="+" class="add">
+            </td>
+            <td>39.9</td>
+            <td>39.9</td>
+            <td><a href="#" class="del">删除商品</a></td>
+        </tr>
+        <tr class="shop-item">
+            <td>
+                <img src="" alt="">
+                <a href="#">精品酒店大床房</a>
+            </td>
+            <td>可下单</td>
+            <td>
+                <input type="button" value="-" class="diff">
+                <input type="text" value="1" class="num" disabled>
+                <input type="button" value="+" class="add">
+            </td>
+            <td>49.9</td>
+            <td></td>
+            <td><a href="#" class="del">删除商品</a></td>
+        </tr>
+        <tr class="shop-item">
+            <td>
+                <img src="" alt="">
+                <a href="#">精品酒店大床房</a>
+            </td>
+            <td>可下单</td>
+            <td>
+                <input type="button" value="-" class="diff">
+                <input type="text" value="1" class="num" disabled>
+                <input type="button" value="+" class="add">
+            </td>
+            <td>59.9</td>
+            <td></td>
+            <td><a href="#" class="del">删除商品</a></td>
+        </tr>
+        <!-- 商品的总计 -->
+        <tr>
+            <td></td>
+            <td></td>
+            <td>已选商品<span id="nums">0</span>件</td>
+            <td>商品总价<span id="shop-sum">0</span>元</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        //删除商品
+        $(".del").click(function(){
+            //弹出提示
+            if (confirm("是否删除该商品")) {
+                $(this).parent().parent().remove();
+                //重新求和
+                countAll();
+            }
+        });
+
+        //商品的长度
+        $("#nums").text($(".shop-item").length);
+        var shopSums=0;
+        //商品数量
+        var nums=0;
+         //求总金额的变化
+        countAll();
+        //实现商品累增
+        $(".add").click(function(){
+            //获取当前商品中的数量
+            var shopNum= $(this).prev("input").val();
+            //每点击一次。实现商品数量累增
+            shopNum++;
+            //把数量放到表单输入框中
+            $(this).prev("input").val(shopNum);
+            //求商品的小计
+            countSum($(this),shopNum);
+
+        });
+     
+        //商品累减
+        $(".diff").click(function(){
+            //获取当前商品中的数量
+            var shopNum= $(this).next("input").val();
+            //每点击一次。实现商品数量累减
+            shopNum--;
+            if (shopNum<1) {
+                shopNum=1;
+            }
+            //把数量放到表单输入框中
+            $(this).next("input").val(shopNum);
+            //求商品的小计
+            countSum($(this),shopNum);
+           
+        });
+        function countSum(obj,shopNum) {
+            //获取商品的单价
+            var price=obj.parent().next("td").text();
+            //实现总价的变化,toFixed(2)保留两位小数
+            var sum=(price*shopNum).toFixed(2);
+            obj.parent().next("td").next("td").text(sum);
+            //实现最后商品的累增变化
+            countAll();
+        }
+
+        //求总金额的变化
+        function countAll() {
+            //开始前需要先清0
+            shopSums=0;
+            nums=0;
+            //初始化时自动求出商品和单价的小计显示
+            $(".shop-item").each(function(index) {
+                //商品数量
+                var shopNum=$(".num").eq(index).val();
+                //获取商品的单价
+                var price =$(".num").eq(index).parent().next("td").text();
+                //求和并赋值
+                var sum =shopNum*price;
+                $(".num").eq(index).parent().next("td").next("td").text(sum.toFixed(2));
+                //求和商品总计
+                shopSums+=sum;
+                //求商品数量和
+                nums+=parseInt(shopNum);
+
+            });
+            //商品总和
+            $("#shop-sum").text(shopSums.toFixed(2));
+            //商品数量和
+            $("#nums").text(nums);
+        }
+    </script>
+</body>
+</html>

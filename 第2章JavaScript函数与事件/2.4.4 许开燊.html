@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+    <style>
+        body{
+            font-size: 12px;
+        }
+        #login{
+            margin: 0 auto;
+            width: 300px;
+        }
+        #login fieldset{
+            border: 1px solid #cccccc;
+            width: 230px;
+            height: 120px;
+            padding: 20px;
+        }
+        #login fieldset legend{
+            margin-left: 25px;
+        }
+        #login fieldset input{
+            border: 1px solid #cccccc;
+        }
+        .txt{
+             width: 180px;
+        }
+    </style>
+</head>
+<body onkeypress="keyFun()">
+    <div id="login">
+          <form action="" name="loginFrom">
+               <fieldset>
+                   <legend>用户登录</legend>
+                   <p>
+                       <label for="">邮箱:</label>
+                       <input type="text" id="txtEmail" class="txt">
+                   </p>
+                   <p>
+                    <label for="">密码:</label>
+                    <input type="password" id="txtPwd" class="txt">
+                </p>
+                <p>
+                    <input type="button" value="登录" onclick="checkLogin()">
+                    <a href="#">忘记密码？</a>
+                </p>
+               </fieldset>
+          </form>
+    </div>
+
+    <script>
+        function checkLogin() {
+            //获取用户输入的邮箱
+            var userEmail=document.getElementById("txtEmail").vale;
+            //获取用户输入的密码
+            var userPwd=document.getElementById("txtPwd").vale;
+            if (userEmail=="123456@qq.com"&&userPwd=="123456") {
+                alert("登录成功！");
+            } else {
+                alert("登录失败！");
+            }
+        }
+
+        function keyFun() {
+            var key =event.keyCode;
+            //判断是否点击回车键
+            if (key==13) {
+                checkLogin();
+            }
+        }
+    </script>
+</body>
+</html>
